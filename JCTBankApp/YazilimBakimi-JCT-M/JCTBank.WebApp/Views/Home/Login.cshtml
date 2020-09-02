@@ -1,0 +1,45 @@
+﻿@using JCTBank.Entity
+@model Customer
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LandingPageLayout.cshtml";
+}
+    
+<div class="login-form">
+    <div class="login-wrap">
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @id = "frmLogin" }))
+        {
+            @Html.AntiForgeryToken()
+
+
+            <h4>Login</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <p class="login-img"><i class="icon_lock_alt"></i></p>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="icon_profile"></i></span>
+                @Html.TextBoxFor(model => model.TCKN, new { @class = "form-control", @placeholder = "TCKN", @onkeypress = "return event.charCode >=48 && event.charCode <=57", maxlength = "11" })
+                @Html.ValidationMessageFor(model => model.TCKN, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Password" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+            </div>
+
+            <input type="submit" value="Login" class="btn btn-primary btn-lg btn-block" />
+            <a href="~/Home/Register" class="btn btn-primary btn-lg btn-block" style="color:white !important;">Register</a>
+        }
+
+    </div>
+
+
+</div>
+    
+
+

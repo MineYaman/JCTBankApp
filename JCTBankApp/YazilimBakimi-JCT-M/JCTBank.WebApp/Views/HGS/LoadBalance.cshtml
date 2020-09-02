@@ -1,0 +1,46 @@
+﻿@model JCTBank.Entity.HGS
+
+@{
+    ViewBag.Title = "LoadBalance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-12">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2>LoadBalance</h2>
+        </header>
+
+        @using (Html.BeginForm("LoadBalance", "HGS", FormMethod.Post, new { @id = "frmLoadBalance" }))
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>LoadBalance</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Balance, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(model => model.Balance, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Balance, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="LoadBalance" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+        }
+
+        <br />
+        <div>
+            @Html.ActionLink("Return Hgs List", "ListSale")
+        </div>
+
+    </section>
+</div>

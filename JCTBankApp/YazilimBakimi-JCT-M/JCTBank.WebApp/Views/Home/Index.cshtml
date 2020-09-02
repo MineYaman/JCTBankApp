@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <style>
+        div.relative {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            left: 1%;
+            top: 15;
+            color: rgb(128, 43, 226);
+        }
+
+        .container {
+            position: relative;
+        }
+    </style>
+        <div class="row">
+            <!-- chart morris start -->
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Anasayfa
+                    </header>
+                    <div class="panel-body">
+                        <div class="tab-pane" id="chartjs">
+                            <div class="column">
+
+                                <div class="relative ">
+                                    <div class="col-md-6">
+                                        <br> <img alt="" src="~/img/user.png">
+
+                                        Hoşgeldiniz
+                                    </div>
+
+                                    <br> <br> <br>
+                                    <div class="col-md-6"> Sn. @User </div>
+
+
+                                    <div>
+                                        <br> <br>
+                                        <div class="col-md-6">
+                                            <br>
+                                            <br> <img alt="" src="~/img/envelope.png">
+
+
+                                            Email
+                                        </div>
+                                    </div>
+                                    <br><br><br><br>
+                                    <div class="col-md-6">user.user@gmail.com</div>
+                                    <br> <br>
+
+                                </div>
+                            </div>
+                        </div>
+                </section>
+            </div>

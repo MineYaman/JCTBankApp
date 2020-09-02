@@ -1,0 +1,72 @@
+﻿@model IEnumerable<JCTBank.Entity.Transfer>
+
+@{
+    ViewBag.Title = "ListTransfer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListTransfer</h2>
+
+<p>
+    @Html.ActionLink("New Money Trasnfer", "MoneyTransfer")
+    @Html.ActionLink("New Viremenet", "Virement")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SendingCustomerNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdditionalSendingCustomerNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceiverNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdditionalReceiverNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Balance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransferType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebOrMobil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SendingCustomerNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdditionalSendingCustomerNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiverNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdditionalReceiverNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Balance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransferType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WebOrMobil)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<JCTBank.Entity.HGS>
+
+@{
+    ViewBag.Title = "ListSale";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>List Sale</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                </header>
+                <div class="panel-body">
+                    <p>
+                        @Html.ActionLink("Sale HGS", "SaleHGS")
+                    </p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Customer.TCKN)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PlateNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Balance)
+                            <th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SaleDate)
+                            <th>
+                            </th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomerTCKN)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PlateNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Balance)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SaleDate)
+                                </td>
+                                <td>
+                                    <a href="/HGS/LoadBalance/@item.Id" class="btn btn-primary btn-xs ">Load HGS</a>
+                                </td>
+                                <td>
+                                    <a href="/HGS/UpdateBalance/@item.Id" class="btn btn-primary btn-xs ">Update HGS</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </section>
+        </div>
+
+    </div>
+}
